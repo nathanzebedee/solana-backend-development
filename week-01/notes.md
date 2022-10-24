@@ -29,5 +29,29 @@ cryptographic algorithms are used to secure the network and verify transactions.
 * transparency
 * censorship resistance
 
+### history of cryptographic systems
+1970s: 
+*How do you send a secure message over an insecure network?*
+    * **symmetric cryptography**: 
+        * single key for encrypting and decrypting data
+        * issue: key management. how do you share this key in a safe way, without it falling into the wrong hands?
+    * **asymmetric cryptography**: 
+        * two keys (public & private), one for encrypting (public) and one for decrypting data (private). the two keys are mathematically related, but not the same.
+        * improvement: given a private key, you can deterministically derive a public key (but not vice versa). this means that you can share your public key with anyone, without worrying about it falling into the wrong hands.
+
+*How do I know that the message was sent by the person I think it was sent by?*
+    * **digital signatures**: 
+        * a digital signature is a mathematical technique that allows a user to prove that they are the owner of a private key, without revealing the private key itself.
+        * encrypt > sign > decrypt > verify: data is encrypted using the private key, and decrypted using the respective public key -- therefore we can make assumptions about who sent this message.
+    * **hashing**: 
+        * a hash function is a mathematical function that takes an arbitrary amount of data and returns a fixed-length, hash value. the hash value is deterministic, meaning that the same input will always produce the same output. the hash value is also one-way, meaning that it is impossible to derive the original input from the hash value.
+        * hash functions are used to verify the integrity of data. if the hash value of the data is known, you can verify that the data has not been tampered with by recalculating the hash value of the data and comparing it to the original hash value. for this reason, a hash value can be used as a digital fingerprint for data.
+
+### four properties of digital signatures
+* authentic
+* unforgable
+* non-reusable
+* tamper-evident
+
 ### references
 "The Internet of Money" - Andreas Antonopoulos
