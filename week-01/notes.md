@@ -50,6 +50,14 @@ cryptographic algorithms are used to secure the network and verify transactions.
         * a consensus algorithm is a set of rules that nodes in a network must follow to reach agreement on the state of the network. consensus algorithms are used to ensure that all nodes in the network are in agreement on the state of the network, and that the network is operating as expected.
         * consensus algorithms are used to ensure that all nodes in the network are in agreement on the state of the network, and that the network is operating as expected.
 
+1980s: 
+*How did the aforementioned cryptographic innovations manifest themselves?*
+    * E-Cash (1983, David Chaum): blind signature for digital transactions
+    * Combatting Junk Mail (1992, Cynthia Dwork, Moni Naor): proof of work for spam prevention
+    * Bitcoin (2008, Satoshi Nakamoto): proof of work for digital currency which solved the double spending problem
+
+### verifiable random delay functions
+a verifiable random delay function (VRF) is a cryptographic primitive that maps inputs to verifiable pseudorandom outputs. 
 ### four properties of digital signatures
 * authentic
 * unfalsifiable
