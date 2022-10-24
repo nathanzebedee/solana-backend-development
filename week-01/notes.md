@@ -49,7 +49,7 @@ cryptographic algorithms are used to secure the network and verify transactions.
 
 ### four properties of digital signatures
 * authentic
-* unforgable
+* unfalsifiable
 * non-reusable
 * tamper-evident
 
