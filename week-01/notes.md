@@ -46,6 +46,9 @@ cryptographic algorithms are used to secure the network and verify transactions.
     * **hashing**: 
         * a hash function is a mathematical function that takes an arbitrary amount of data and returns a fixed-length, hash value. the hash value is deterministic, meaning that the same input will always produce the same output. the hash value is also one-way, meaning that it is impossible to derive the original input from the hash value.
         * hash functions are used to verify the integrity of data. if the hash value of the data is known, you can verify that the data has not been tampered with by recalculating the hash value of the data and comparing it to the original hash value. for this reason, a hash value can be used as a digital fingerprint for data.
+    * **consensus**: 
+        * a consensus algorithm is a set of rules that nodes in a network must follow to reach agreement on the state of the network. consensus algorithms are used to ensure that all nodes in the network are in agreement on the state of the network, and that the network is operating as expected.
+        * consensus algorithms are used to ensure that all nodes in the network are in agreement on the state of the network, and that the network is operating as expected.
 
 ### four properties of digital signatures
 * authentic
