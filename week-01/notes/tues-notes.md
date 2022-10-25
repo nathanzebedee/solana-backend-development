@@ -42,6 +42,8 @@ solana uses proof of stake (PoS) to select block producers. VRFs are used to ass
 issue: **liveness** - what do we do when someone is chosen for a slot, but nothing is produced? what if no producer is chosen? does the blockchain stall? 
 * we can have a timeout period. if nothing is produced within this time period, then you can simply move on to the next slot. however, this is only possible if there is a clock that is synchronized across the network (PoH).
 
+we do not need to send transactions to every node such as in a gossip protocol. we can simply send the transactions to the predesignated leader (for a given slot) and the leader can broadcast the block to the rest of the network.
+
 ### solana vs hedera
 hedera relies upon a medium measure for their idea of time. solana' is much more decentralized. on solana, any node can run its own clock without relying on a central clock. this "clock" is a hashing algorithm - a SHA256 recursive hash: the output from one step forming the input of the next step. 
 
@@ -64,3 +66,51 @@ thus, we do not have to wait for blocks to be gossiped between nodes. we can exe
 5. in July 2018, a testnet of 50 nodes was built and managed up to 250k tps.
 6. in december 2018, the testnet was increased to 150 nodes, and the throughput averaged 200k tps, peaking at 500k.
 
+### network outages
+on sept 14, 2021, a cohort of bots flooded the solana network. solana engineers were unable to stabilize the network, and as a result the validator community opted to coordinate a restart of the network.
+
+the solution seems to be setting a limit on how much can be forwarded when a node gets behind.
+
+one of the biggest benefits of a blockchain is that even in complete liveness failure, the validators are individually responsible for recovering the state and continuing the chain without relying on a trusted third party.
+
+### crypto economics of an attack
+if SOL fees are $0.000005 then 400k transactions ~$2.
+
+essentially, what is has shown is that a cost of ~$7,000 an hour is required to cause an outage on the network.
+
+compare this to the cost of a 51% attack on PoW chains.
+
+that being said, transaction fees can have an effect on the network's ability to be overwhelmed. the outages have resulted because of the network's low-cost transaction fees.
+
+## mempool
+the mempool is a queue of transactions that are waiting to be processed. the mempool is a temporary storage for transactions that are waiting to be processed.
+
+### crypto economics
+
+*in a system, what do we want to encourage?*
+* trusted execution
+* open access
+* fast finality
+* decentralized control
+* inexpensiveness
+
+*things we want to discourage?*
+* safety failure
+* censorship
+* slow finality
+* expensiveness
+
+*why do incentives matter?*
+* an incentive is any design element of a system that influences the behavior of the system participants by changing the relative costs and benefits of choices those participants may make.
+    * rewards
+        * block rewards, transaction fees
+        * privileges within the system
+    * punishments
+        * loss of deposits, loss of privileges (PoS)
+
+## governance
+"the greatest challenge that new blockchains must solve is not speed or scaling, it is governance." - Kai Sedgwick
+
+governance is the question: "how will our blockchain as a system progress?" (coming to agreements on updating the system)
+
+solana has the feature proposal program (FPP) which allows for the community to propose changes to the system. the FPP is a formal process for proposing, discussing, and implementing changes to the Solana protocol.
