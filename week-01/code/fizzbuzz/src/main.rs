@@ -12,12 +12,14 @@ pub mod check_answer {
         let answer = finished();
         let attempt = starter();
 
-        // fizzbuzz
+        // check fizzbuzz count
         assert_eq!(answer.fizzbuzz_count, attempt.fizzbuzz_count);
-        // fizz
+        // check fizz count
         assert_eq!(answer.fizz_count, attempt.fizz_count);
-        // buzz
+        // check buzz count
         assert_eq!(answer.buzz_count, attempt.buzz_count);
+
+        println!("All tests passed!");
     }
 
     pub struct Counts {

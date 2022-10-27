@@ -4,9 +4,9 @@ pub mod finished {
     use super::*;
 
     pub fn finished() -> Counts {
+        let mut fizzbuzz_count = 0;
         let mut buzz_count = 0;
         let mut fizz_count = 0;
-        let mut fizzbuzz_count = 0;
 
         for i in 1..=100 {
             match i {
