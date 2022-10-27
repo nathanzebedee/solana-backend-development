@@ -141,3 +141,5 @@ fn main() {
 ```
 
 in the above example, we are using the `match` expression to handle the `Option` enum. we are using the `Some` and `None` variants to handle the possible cases of the `Option` enum.
+
+## iterators
