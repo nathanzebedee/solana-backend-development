@@ -37,7 +37,9 @@ fn main() {
 each generic can only be one datatype, so you can't have a struct with two fields of the same type, T, but different types, U.
 
 ### enums
-enums are a way to define a type by enumerating its possible values. 
+enums are a way to define a type by enumerating its possible values. in an enum, we have fixed choices, whereas in a struct, we have a set of fields that can be of any type. 
+
+an enum can be thought of as a flat heirarchy of fixed data structures.
 
 ```
 enum IpAddrKind {
@@ -64,5 +66,77 @@ fn main() {
 however, you must have the same type for both branches of the `if` expression.
 
 ### looping
-* `loop` - loops forever
+* `loop` - loops forever (until we `break` out of it)
 * `while` - loops while a condition is true
+
+### option
+the `Option` enum allows us to handle situations where expressions might (or might not) return a value. 
+
+The `Option<T>` enum has to variants:
+* `Some` - a tuple struct that wraps a `value` with `T`
+* `None` - indicates the lack of a value; substitutes `null` in other languages
+
+the `Option` enum is very useful for avoiding errors that can occur when we try to access a value that doesn't exist.
+
+### result
+the `Result` enum is similar to the `Option` enum, but it is used for error handling.
+
+The `Result<T, E>` enum has two variants:
+* `Ok` - a tuple struct that wraps a `value` with `T`
+* `Err` - a tuple struct that wraps an `error` with `E`
+
+```
+enum Result<T, E> {
+    Ok(T),
+    Err(E),
+}
+```
+
+### matching
+the `match` expression is used to handle all possible cases of a value. 
+
+
+```
+match VALUE {
+    PATTERN => EXPRESSION,
+    PATTERN => EXPRESSION,
+    PATTERN => EXPRESSION,
+    _ => EXPRESSION, // matches all other cases
+}
+```
+
+it is a flexible way of handling multiple cases, and is similar to a `switch` statement in other languages. in the example above, the `_` is a catch-all pattern that will match all other cases.
+
+```
+enum Coin {
+    Penny, 
+    Quarter
+}
+
+fn value_in_cents(coin: Coin) -> u8 {
+    match coin {
+        Coin::Penny => 1,
+        Coin:: Quarter => 25
+    }
+}
+```
+
+the keyword `match` is followed by an expression: `coin`. the value of this expression is compared with the patterns in each arm of the `match` expression. if a pattern matches the value, the code associated with that pattern is executed. because each arm is an expression, we can return a value from each arm as well.
+
+### matching with option
+```
+fn main() {
+    fn plus_one(x: Option<i32>) {
+        match x {
+            Some(i) => Some(i + 1),
+            None => None,
+            _ => None
+        }
+    }
+
+    let five = Some(5);
+    let six = plus_one(five);
+    let none = plus_one(None);
+}
+
+in the above example, we are using the `match` expression to handle the `Option` enum. we are using the `Some` and `None` variants to handle the possible cases of the `Option` enum.
