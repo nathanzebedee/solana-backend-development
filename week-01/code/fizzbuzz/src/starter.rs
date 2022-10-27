@@ -1,17 +1,23 @@
-use mod finished
-
 pub mod starter {
-    pub fn starter() {
-        // write your Fizz Buzz program here
-            // iterate from 1 to 100
-            // if the number is divisible by 3, print "Fizz"
-            // if the number is divisible by 5, print "Buzz"
-            // if the number is divisible by 3 and 5, print "FizzBuzz"
-            // count the number of times you print "FizzBuzz" and print this number at the end
-            // return the number of times you print "FizzBuzz"
+
+    // define a public function called "starter" that returns a Counts struct
+        // Counts { fizz_count: i32, buzz_count: i32, fizzbuzz_count: i32 }
+        // loop through 1 to 100
+            // if the number is divisible by 3 and 5, increment fizzbuzz_count
+            // if the number is divisible by 3, increment fizz_count
+            // if the number is divisible by 5, increment buzz_count
+    
+    pub fn starter() -> Counts {
+        Counts {
+            fizz_count: 0,
+            buzz_count: 0,
+            fizzbuzz_count: 0,
+        }
     }
 
-    let attempt = starter();
-    let answer = finished::finished();
-    assert_eq!(answer, attempt);
+    pub struct Counts {
+        pub fizz_count: i32,
+        pub buzz_count: i32,
+        pub fizzbuzz_count: i32,
+    }
 }
