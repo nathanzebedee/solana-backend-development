@@ -124,9 +124,13 @@ fn value_in_cents(coin: Coin) -> u8 {
 the keyword `match` is followed by an expression: `coin`. the value of this expression is compared with the patterns in each arm of the `match` expression. if a pattern matches the value, the code associated with that pattern is executed. because each arm is an expression, we can return a value from each arm as well.
 
 ### matching with option
+in the below example, we are using the `match` expression to handle the `Option` enum. we are using the `Some` and `None` variants to handle the possible cases of the `Option` enum.
+
+if a `i32` is passed into the function, it is iterated by one and wrapped in a `Some` variant. if `None` or any other datatype is passed into the function, `None` is returned.
+
 ```
 fn main() {
-    fn plus_one(x: Option<i32>) {
+    fn plus_one(x: Option<i32>) -> Option<i32> {
         match x {
             Some(i) => Some(i + 1),
             None => None,
@@ -140,6 +144,80 @@ fn main() {
 }
 ```
 
-in the above example, we are using the `match` expression to handle the `Option` enum. we are using the `Some` and `None` variants to handle the possible cases of the `Option` enum.
-
 ## iterators
+the iterator, `.iter()`, in rust is optimized in that is has no effect until it is needed. for this reason, we call iterators *lazy*.
+
+```
+let names = vec!["Bob", "Frank", "Ferris"];
+let names_iter = names.iter();
+```
+
+the above code creates an iterator for us that we can use to iterate through the names use `.next()`.
+
+```
+fn iterator_demo() {
+    let v1 = vec![1, 2];
+    let mut v1_iter = v1.iter();
+
+    assert_eq!(vi_iter.next(), Some(&1));
+    assert_eq!(vi_iter.next(), Some(&2));
+    assert_eq!(vi_iter.next(), None);
+}
+```
+
+### vectors
+vectors are one of the most useful types of collections in rust. they are similar to arrays, but they can grow or shrink in size. 
+
+we can create a new vector using `Vec::new()` or by using the `vec!` macro.
+
+```
+let v: Vec<i32> = Vec::new();
+let v: Vec<i32> = vec![1, 2, 3];
+```
+
+we do not necessarily need to specify the type when declaring a vector using the `vec!` macro, as the macro allows the compiler to infer the type of the values.
+
+we can retrieve items from the vector by:
+* `get` - `v.get(2)` returns `Some(&3)`
+* `[]` - `v[2]` returns `3`
+
+if we want to iterate over a vector, we can use the `.iter()` method or a loop:
+```
+let v = vec![1, 2, 3, 4, 5];
+
+// loop
+for i in &v {
+    println!("{}", i);
+}
+
+// iterator
+let mut iterator = v.iter();
+println!("{}", iterator.next().unwrap());
+```
+
+### shadowing
+shadowing is when we declare a new variable with the same name as the previous variable. the first variable is said to be *shadowed* by the new variable.
+
+it is important to note that the variables exist in their own scopes.
+
+```
+fn main() {
+    let y = 2; // 2
+    let y = y * 3; // 6
+
+    {
+        let y = y * 2; 
+        println!("{}", y); // 12
+    }
+
+    println!("{}", y); // 6
+}
+```
+
+### macros
+macros allow us to avoid code duplication. some examples of macros are:
+* `vec!`: creates a new vector
+* `println!`: prints to the console
+
+we can identify a macro by the `!` at the end of the name.
+

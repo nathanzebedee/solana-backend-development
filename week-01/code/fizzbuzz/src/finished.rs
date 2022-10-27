@@ -1,4 +1,8 @@
+use crate::check_answer::Counts;
+
 pub mod finished {
+    use super::*;
+
     pub fn finished() -> Counts {
         let mut buzz_count = 0;
         let mut fizz_count = 0;
@@ -18,11 +22,5 @@ pub mod finished {
             buzz_count,
             fizzbuzz_count,
         };
-    }
-
-    pub struct Counts {
-        pub fizz_count: i32,
-        pub buzz_count: i32,
-        pub fizzbuzz_count: i32,
     }
 }

@@ -1,4 +1,7 @@
+use crate::check_answer::Counts;
+
 pub mod starter {
+    use super::*;
 
     // define a public function called "starter" that returns a Counts struct
         // Counts { fizz_count: i32, buzz_count: i32, fizzbuzz_count: i32 }
@@ -8,16 +11,11 @@ pub mod starter {
             // if the number is divisible by 5, increment buzz_count
     
     pub fn starter() -> Counts {
+
         Counts {
             fizz_count: 0,
             buzz_count: 0,
             fizzbuzz_count: 0,
         }
-    }
-
-    pub struct Counts {
-        pub fizz_count: i32,
-        pub buzz_count: i32,
-        pub fizzbuzz_count: i32,
     }
 }
