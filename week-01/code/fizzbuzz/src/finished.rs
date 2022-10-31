@@ -11,8 +11,8 @@ pub mod finished {
         for i in 1..=100 {
             match i {
                 i if i % 15 == 0 => fizzbuzz_count += 1,
-                i if i % 3 == 0 => fizz_count += 1,
-                i if i % 5 == 0 => buzz_count += 1,
+                i if i % 3 == 0 && i % 5 != 0 => fizz_count += 1,
+                i if i % 5 == 0 && i % 3 != 0 => buzz_count += 1,
                 _ => (),
             }
         }
