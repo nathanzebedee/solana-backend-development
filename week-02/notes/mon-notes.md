@@ -33,7 +33,7 @@ rust as a very strong compile-time memory safety guarantee, which is achieved th
 * lifetimes
 
 ### string data types
-strings in rust (String) are dynamic data types that are stored on the heap. a string is made up of three parts:
+strings in rust (`String`) are dynamic data types that are stored on the heap. a string is made up of three parts:
 * pointer to the memory location (internal buffer) of the string
 * length of the string (number of bytes stored in the buffer)
 * capacity of the string (the size of the buffer in bytes)
@@ -75,6 +75,66 @@ fn main() {
         let s = String::from("hello, world");
     } // here, `s` goes out of scope and is dropped
     println!("{}", s); // error: `s` does not exist
+}
+```
+
+### copying
+for simple data types that can exist on the stack (i.e., integers, etc), when we make an assignment we can just copy the value.
+
+```
+fn main() {
+    let a = 3;
+    let b = a;
+}
+```
+
+types that can be copied:
+* all integer types
+* the Boolean type `bool` with values `true` and `false`
+* all floating point types
+* the character type `char`
+Tuples, if they only contain types that are also Copy. For example, `(i32, i32)` is Copy, but `(i32, String)` is not.
+
+for more complex data types (such as `String`), we need memory allocated on the heap, and then the ownership rules apply.
+
+### moving ownership
+for none copy types (such as `String`), when we make an assignment or set a parameter to a function, we are *moving* the ownership of the data. the source gives up ownership to the destination, and then the source is uninitialized:
+
+```
+fn main() {
+    let a = vec![1, 2, 3];
+    let b = a;
+    let c = a; // error: `a` does not have ownership of the vector
+
+    let param = String::from("param");
+    takes_ownership(param);
+    println!("{}", param); // error: `param` does not have ownership of the String
+}
+
+fn takes_ownership(param: String) {
+    assert_eq!(param, "param");
+}
+```
+
+### references
+references are a flexible means to help us with ownership and variable lifetimes. they are written as `&T` followed by the variable name (in place of `T`). they are immutable by default, but can be made mutable with `&mut T`.
+
+by using references `&`, we can use a value without taking ownership of it. we are *borrowing* the value. references are essentially pointers to the referenced value in memory.
+
+by using a mutable reference, we can read and modify teh referent.
+
+rules between mutable and immutable references **for a given scope**:
+* you can have *either* one mutable reference `&mut T`
+* *or* any number of immutable references `&T`
+
+the above rules are meant to prevent *data races* - when we read data as it is being written to. they follow the "multiple reader; single writer" principle.
+
+```
+fn main() {
+    let mut s = String::from("hello");
+    let s1: &mut String = &mut s;
+    s1.push_str(", world");
+    println!("{}", s1); // "hello, world"
 }
 ```
 
