@@ -138,3 +138,44 @@ fn main() {
 }
 ```
 
+## de referencing
+we can use the `*` operator to de reference a pointer. this is useful when we want to modify the value the pinter is pointing to on the heap.
+
+```
+fn main() {
+    let a = 3;
+    let b = &a;
+    assert_eq!(b, a); // false: `&int` is not equal to `int`
+    assert_eq!(*b, a); // true: `int` is equal to `int`
+}
+```
+
+### slices
+slices are a way to reference a contiguous sequence of elements in a collection rather than the whole collection. they are written as `&[T]` or `&mut [T]`. slices can be used to borrow a section of a `String`, `Vec`, or array.
+
+slices are similar to arrays, but their size is not known at compile time. slices are *two-word objects*, which contain:
+* first word: a pointer to the data
+* second word: the length of the slice
+
+```
+fn main() {
+    let array = [1, 2, 3, 4, 5];
+    let slice = &array[1..3];
+    assert_eq!(slice, [2, 3]);
+}
+```
+
+### printing and outputting
+* `format!`: write formatted text to a String
+* `print!`: same as `format!`, but the text is printed to the console (io::stdout)
+* `println!`: same as `print!`, but a newline is appended
+* `eprint!`: same as `format!`, but the text is printed to the standard error (io::stderr)
+* `eprintln!`: same as `eprint!`, but a newline is appended
+
+use braces `{}` to format the output. the number of arguments must match the number of braces, and are inserted sequentially.
+
+```
+println!("{} days in the month of {}", 31, "January");
+// "31 days in the month of January"
+```
+
