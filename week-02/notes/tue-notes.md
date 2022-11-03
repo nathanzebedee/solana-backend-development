@@ -9,7 +9,7 @@ in solana, everything is an *account*. an account is essentially a file with an 
 below are the fields which exist on an account:
 * key
 * isSigner
-*isWritable
+* isWritable
 * lamports
 * data
 * owner
@@ -22,7 +22,7 @@ below are the fields which exist on an account:
 
 ex: if you create an account in solana in order to store some SOL, you would be the owner but the system program would be the owner.
 
-### programs
+### program accounts
 there are different types of accounts, and one such type is a *program account*. whereas other accounts store arbitrary data, programs store code (and hold no state or balance). a program is a collection of instructions that can be executed by the solana runtime. programs are written in rust and compiled to a binary blob that is stored on the blockchain. the program is responsible for validating the transaction and modifying the state of the blockchain.
 
 things to know about program accounts:
@@ -46,10 +46,17 @@ the **BPF Loader** is a program that can load other programs onto the blockchain
 
 **rent**: the solana network charges rent (in SOL) for the data that is held in accounts (since that data is taking up validator network resources). an account can be marked *rent exempt* if it has a balance of at least 2-years worth of rent. if an account is unable to pay rent, it will no longer load.
 
-### native programs
+### native accounts
 *special* programs that are required to run the network. below are a few notable native programs:
-* **system program**: responsible for creating new accounts, and assigning account ownership. (if an account does not have a specified owner, it is owned by the system program)
+* **system program**: responsible for creating new accounts, and assigning account ownership, (if an account does not have a specified owner, it is owned by the system program) and for transferring SOL between accounts.
 * **bpf loader**: responsible for deployment, upgrades, and instruction execution of solana programs
+
+### data accounts
+data accounts are simply accounts which store arbitrary data - like files. there are two kinds of data accounts:
+* system owned accounts
+* PDA (Program Derived Address) accounts
+
+**program Derived Address (PDA) accounts** are accounts that are created by a program. they are owned by the program, and can only be modified by the program. they are useful for storing data that is only relevant to a program. With PDAs, a program can sign for a transaction without having to use a private key.
 
 ### differences from ethereum
 **ethereum**:<br>
