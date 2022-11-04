@@ -1,4 +1,4 @@
-# 11/01/2022
+# 11/01/2022 - solana development
 
 ### accounts
 in solana, everything is an *account*. an account is essentially a file with an address (public key) that lives on the solana blockchain. if you ever need to store data on the blockchain, the data will be stored in an account.
@@ -64,3 +64,67 @@ only smart contracts have storage and they naturally have full control over that
 
 **solana**:<br>
 *any* account can store state, but the storage for smart contracts is only used to store immutable byte code -- the actual state is stored in a separate *data account*.
+
+### using modules
+you can bring modules into your program with the `use` keyword.
+
+```
+use std::env;
+```
+
+### error handling
+in rust, we have *recoverable* and *unrecoverable* errors. * **recoverable errors** are errors that can be handled by the program. with these, we want to notify the user, but there is a structured way to proceed. for these kinds of errors, we use the `enum Result<T, E> { Ok(T), Err(E) }` type. a good practice is to use `match` to handle these errors.
+* **un-recoverable errors** are errors that cannot be handled by the program, and will cause the program to exit.
+
+```
+fn main() {
+    // recoverable
+    let f = File::open("hello.txt"); // returns a Result
+    let f = match f {
+        Ok(file) => file,
+        Err(error) => {
+            // error handling
+        },
+    };
+
+    // unrecoverable
+    let array = [1, 2, 3];
+    println!("{}", array[99]); // panics - out of bounds
+}
+```
+
+### the `?` operator
+the `?` operator is a shortcut for handling errors. it works similarly to the `match` expression, but it is less verbose. it can only be used in functions that return `Result`.
+
+the `?` operator is placed after an expression.
+* if the returned value is an `Ok`, the value inside the `Ok` will be returned from the current function.
+* if the returned value is an `Err`, the `Err` will be returned from the current function.
+
+```
+fn main() {
+    let f = File::open("hello.txt")?;
+}
+```
+
+### panic! macro
+the `panic!` macro is used to create *unrecoverable* errors. it is used when there is no way to recover from an error. it is used when there is a bug in the program, or if the program is in a bad state.
+
+```
+fn main() {
+    panic!("Bug found!");
+}
+```
+
+### Cargo.toml
+the `Cargo.toml` file is used to configure the project. it is used to specify the dependencies of the project, and the version of rust that the project is using.
+
+```
+[package]
+name = "hello"
+version = "0.1.0"   
+edition = "2021"
+
+[dependencies]
+...
+```
+
