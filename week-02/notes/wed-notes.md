@@ -48,4 +48,3 @@ the instruction's `program_id` specifies the public key of the program being inv
 3. assemble instruction
 4. submit instruction (via RPC call)
 5. read modified account state (via RPC call)
-
