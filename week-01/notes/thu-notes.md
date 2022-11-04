@@ -221,3 +221,77 @@ macros allow us to avoid code duplication. some examples of macros are:
 
 we can identify a macro by the `!` at the end of the name.
 
+### hashmaps
+where vectors store values by an integer index, `HashMap` stores values by *key*. `HashMap` keys can be a **string**, a **boolean**, a **integer**, or any other type that implements the `Eq` and `Hash` traits. a `HashMap` can grow, and *shrink* if it has excess space.
+
+you can create a `HashMap` using:
+* `HashMap::with_capacity(uint)`
+* `HashMap::new()`
+
+```
+use std::collections::HashMap;
+
+fn main() {
+    let mut scores = HashMap::new();
+
+    scores.insert(String::from("Blue"), 10); // insert a key-value pair - key: String, value: i32
+}
+```
+
+you can use an *iterator* (`.iter()` method) to get values from the hashmap:
+
+```
+use std::collections::HashMap;
+
+fn main() {
+    let mut balances = HashMap::new();
+    balances.insert(String::from("USD"), 100); // key-value pair
+
+    for (denom, balance) in balances.iter() {
+        println!("{}: {}", denom, balance);
+    }
+}
+```
+
+if we want a *particular* value, we can use the `.get()` method. the `.get()` method returns an `Options<&V>` where `V` is teh type of the value.
+
+```
+use std::collections::HashMap;
+
+fn main() {
+    let mut balances = HashMap::new();
+    balances.insert("USD", 100); // key-value pair
+
+    let denom = String::from("USD");
+    let balance = balances.get(&denom).copied().unwrap_or(0);
+}
+```
+
+### traits
+traits are a way of defining the behavior that a type has and can share with other types.
+
+trait definitions are a way to group method signatures together to define a set of behaviors necessary for a particular purpose.
+
+```
+pub trait Summary {
+    fn summarize(&self) -> String;
+}
+```
+
+we can **implement a trait** on a type by using the `impl` keyword.
+
+```
+pub struct Tweet {
+    pub username: String,
+    pub content: String,
+    pub reply: bool,
+    pub retweet: bool,
+}
+
+impl Summary for Tweet {
+    fn summarize(&self) -> String {
+        format!("{}: {}", self.username, self.content)
+    }
+}
+```
+
