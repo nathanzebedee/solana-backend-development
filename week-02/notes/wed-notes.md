@@ -1,4 +1,4 @@
-# 11/2/2022 - solana programs
+# solana programs
 
 ### solana programs overview
 * programs process instructions from both end users and other programs

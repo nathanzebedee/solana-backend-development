@@ -1,4 +1,4 @@
-# 10/27/2022
+# rust continued
 
 ### ideomatic rust
 the patters you use to design our rust programs are different from those we use in building programs in other languages, such as python or javascript. 

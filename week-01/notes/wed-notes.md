@@ -1,4 +1,4 @@
-# 10/26/2022
+# rust 101
 
 ### rust in context with other low-level languages
 rust is a general purpose, low-level systems language that prioritizes safety and speed. compared to other popular low-level languages, like c++, rust offers comparable performance, but with a much more robust type system and memory safety. rust is also a compiled language, which means that it is compiled into machine code before it is run. this means that rust is much faster than interpreted languages like python, but it also means that rust is not as flexible as interpreted languages. 

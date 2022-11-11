@@ -1,4 +1,4 @@
-# 10/31/2022
+# rust ownership
 
 ### memory - heap and stack
 **stack**:

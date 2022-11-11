@@ -1,4 +1,4 @@
-# 10/25/2022
+# solana theory
 
 ### cryptography
 public and private keys are derived from an elliptic curve. Solana uses the EdDSA algorithm, which is a variant of the Ed25519 algorithm. Elliptic curves have a shorter key length for the same amount of security.

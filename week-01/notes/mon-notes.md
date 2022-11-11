@@ -1,4 +1,4 @@
-# 10/24/2022
+# blockchain 101
 
 ### centralized systems
 by closing a system, you can achieve security -- layers of access control to restrict access to the system and/or prevent fraudulent activity

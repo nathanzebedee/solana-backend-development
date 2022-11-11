@@ -1,4 +1,4 @@
-# 11/01/2022 - solana development
+# solana development
 
 ### accounts
 in solana, everything is an *account*. an account is essentially a file with an address (public key) that lives on the solana blockchain. if you ever need to store data on the blockchain, the data will be stored in an account.
