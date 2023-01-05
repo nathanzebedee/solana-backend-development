@@ -1,8 +1,10 @@
 mod finished;
 mod starter;
 
-use crate::finished::finished::finished;
-use crate::starter::starter::starter;
+use crate::{
+    finished::finished::finished,
+    starter::starter::starter,
+};
 
 pub mod check_answer {
     use super::*;

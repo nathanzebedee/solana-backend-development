@@ -1,0 +1,10 @@
+/Users/masterzorgon/Documents/Programming/personal-projects/blockchain/solana-backend-development/week-01/code/guessing-game/target/debug/deps/ppv_lite86-d061e71c6a765e7f.rmeta: /Users/masterzorgon/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.17/src/lib.rs /Users/masterzorgon/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.17/src/soft.rs /Users/masterzorgon/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.17/src/types.rs /Users/masterzorgon/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.17/src/generic.rs
+
+/Users/masterzorgon/Documents/Programming/personal-projects/blockchain/solana-backend-development/week-01/code/guessing-game/target/debug/deps/libppv_lite86-d061e71c6a765e7f.rlib: /Users/masterzorgon/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.17/src/lib.rs /Users/masterzorgon/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.17/src/soft.rs /Users/masterzorgon/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.17/src/types.rs /Users/masterzorgon/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.17/src/generic.rs
+
+/Users/masterzorgon/Documents/Programming/personal-projects/blockchain/solana-backend-development/week-01/code/guessing-game/target/debug/deps/ppv_lite86-d061e71c6a765e7f.d: /Users/masterzorgon/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.17/src/lib.rs /Users/masterzorgon/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.17/src/soft.rs /Users/masterzorgon/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.17/src/types.rs /Users/masterzorgon/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.17/src/generic.rs
+
+/Users/masterzorgon/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.17/src/lib.rs:
+/Users/masterzorgon/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.17/src/soft.rs:
+/Users/masterzorgon/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.17/src/types.rs:
+/Users/masterzorgon/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.17/src/generic.rs:
