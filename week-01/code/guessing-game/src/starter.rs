@@ -18,6 +18,6 @@ pub mod starter {
                 // TODO: Print "Too big!" if the user's guess is too big
                 // TODO: Print "You win!" if the user's guess is correct and break out of the loop
 
-        // once complete, compare your code to the finished.rs file
+        // Once complete, compare your code to the finished.rs file
     }
 }

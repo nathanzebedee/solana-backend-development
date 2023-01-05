@@ -7,6 +7,6 @@ use crate::{
 };
 
 fn main() {
-    // finished();
+    // finished(); // uncomment this line to run the finished code
     starter();
 }
