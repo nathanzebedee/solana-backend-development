@@ -17,10 +17,10 @@ pub mod finished {
             }
         }
 
-        return Counts {
+        Counts {
             fizz_count,
             buzz_count,
             fizzbuzz_count,
-        };
+        }
     }
 }
